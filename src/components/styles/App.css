@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+:root {
+  --primary-color: #00adb5;
+  --dark-color: #eeeeee;
+  --light-color: #222831;
+}
+
+body,
+html {
+  height: 100%;
+  background: var(--dark-color);
+}
+
+* > * {
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  display: block;
+  position: relative;
+  margin: 5px auto;
+  height: auto;
+  width: 800px;
+  padding: 20px;
+}
+
+.container .title {
+  font-size: 3em;
+  text-align: center;
+  border: 5px solid var(--primary-color);
+  padding: 0.3em 0.2em;
+  border-radius: 4px;
+}
+
+.text-light {
+  color: var(--light-color);
+}
+
+.container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+.container .questions {
+  padding: 3em;
+}
+
+/* 
+.container .questions .qid{
+  padding: .2em .7em;
+  color: #222222;
+  background-color: #0DFF92;
+  border-radius: 50px;
+} */
+
+.container .grid {
+  margin-top: 3em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.container .btn {
+  padding: 0.2em 1.7em;
+  border: none;
+  border-radius: 0.1em;
+  font-size: 1.2em;
+}
+
+.container .btn:hover {
+  cursor: pointer;
+  background-color: #222831;
+  color: #eeeeee;
+}
+
+.next {
+  background-color: #aed3d5;
+  justify-self: flex-end;
+}
+
+.prev {
+  background-color: #aed3d5;
+  justify-self: flex-start;
+}
+
+input[type="radio"]:checked ~ .check {
+  border: 5px solid var(--primary-color);
+}
+
+input[type="radio"]:checked ~ .check::before {
+  background: var(--primary-color);
+}
+
+input[type="radio"]:checked ~ .text-primary {
+  color: var(--dark-color);
+}
+
+.answers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.answer-option {
+  background-color: var(--light-color);
+  color: var(--dark-color); /* Dark text for better visibility */
+  padding: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.answer-option:hover,
+.answer-option.selected {
+  background-color: var(--primary-color); /* Example color */
+  color: var(--light-color);
+}
+.selected .text-primary {
+  color: var(--light-color);
+}
+
+/* To get selected option we are using this checked class */
+.checked {
+  border: 5px solid var(--primary-color) !important;
+}
+
+.checked::before {
+  background: var(--primary-color);
+}
