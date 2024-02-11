@@ -1,13 +1,61 @@
 import React, { useState } from "react";
 import data from "../database/data";
+import confetti from "canvas-confetti"; // importing the confetti library of npm 
 
 export default function Questions() {
   const [selectedOption, setSelectedOption] = useState(undefined); // Corrected state variable
 
   function onSelect(i) {
     setSelectedOption(i); // Correctly use setSelectedOption
+    shootConfetti(); //call to shoot confetti function
   }
+   //shoot confetti func
+   function shootConfetti(){
+    //third option
+    var end = Date.now() + (15 * 100);
+    var colors = ['#a864fd','#29cdff','#78ff44','#ff718d','#fdff6a'];
 
+    (function frame() {
+      confetti({
+        particleCount: 5,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: colors
+      });
+      confetti({
+        particleCount: 5,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+        colors: colors
+      });
+      confetti({
+        particleCount: 5,
+        angle: 120,
+        spread: 55,
+        origin: { x: 2 },
+        colors: colors
+      });
+      confetti({
+        particleCount: 5,
+        angle: 120,
+        spread: 55,
+        origin: { x: 3 },
+        colors: colors
+      });
+      confetti({
+        particleCount: 5,
+        angle: 120,
+        spread: 55,
+        origin: { x: 4 },
+        colors: colors
+      });
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    }());
+  }
   const questions = data[0];
 
   return (
