@@ -1,34 +1,70 @@
-.container ol li {
-  font-size: 1.4em;
-  color: #cecece;
+.main-container {
+  text-align: center;
+  padding: 20px;
 }
 
-.start {
-  display: flex;
-  justify-content: center;
-  padding-top: 2em;
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.start .btn {
-  padding: 0.2em 1.7em;
-  border: none;
-  border-radius: 0.1em;
-  font-size: 1.2em;
-  color: #202020;
-  text-decoration: none;
-  background-color: #faff5a;
+.quiz-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0;
+  justify-content: center; /* This centers the items in the grid */
+  align-content: center; /* This ensures the entire grid is centered vertically if there's extra space */
 }
 
-#form {
-  display: flex;
-  justify-content: center;
-  margin-top: 4em;
+.quiz-item {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#form .userid {
-  padding: 0.7em 2em;
-  width: 50%;
-  border: none;
-  border-radius: 3px;
-  font-size: 1em;
+.quiz-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.5s ease;
 }
+
+.quiz-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.quiz-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+.quiz-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Adjustments for large screens */
+@media (min-width: 1024px) {
+  .quiz-container {
+    grid-template-columns: repeat(3, 1fr); /* Adjusted for 2 items per row on large screens */
+    gap: 40px;
+  }
+
+  .quiz-item {
+    height: 250px;
+  }
+
+  .page-title {
+    font-size: 3rem;
+  }
+}
+
